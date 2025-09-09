@@ -1,0 +1,339 @@
+/* ไฟล์สไตล์ Live App - แอปไลฟ์สด */
+
+/* กำหนดตัวแปร CSS */
+:root {
+  --live-primary-pink: #fb7299;
+  --live-danger-red: #ff4d4f;
+  --live-button-gradient: linear-gradient(45deg, #fe8c8c 0%, #f7739a 100%);
+  --live-danmaku-gift-bg: linear-gradient(90deg, rgba(251, 114, 153, 0.08), rgba(255, 221, 96, 0.08));
+  --live-text-primary: #333333;
+  --live-text-secondary: #888888;
+  --live-text-system: #b2b2b2;
+  --live-border-color: #ededf0;
+  --live-button-bg: #f0f2f5;
+  --live-modal-bg: #ffffff;
+  --live-screen-bg: #f7f8fc;
+}
+
+/* คอนเทนเนอร์แอปไลฟ์สด */
+.live-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* ใช้ความสูงของคอนเทนเนอร์หลัก ไม่ใช่ความสูงของมุมมอง */
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* ปิดการใช้งานแถบเลื่อนหน้าทั้งหมดของแอปไลฟ์สด */
+.live-app .app-content,
+.live-app #app-content {
+  overflow: hidden !important; /* ปิดการเลื่อนทั้งหมด */
+  height: 100% !important;
+}
+
+/* ==================== อินเทอร์เฟซศูนย์ไลฟ์สด ==================== */
+
+.live-main-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%; /* ใช้ความสูงเต็มของคอนเทนเนอร์หลัก */
+  overflow-y: auto;
+}
+
+.live-main-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.live-main-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--live-text-primary);
+  margin-bottom: 8px;
+}
+
+.live-main-header p {
+  font-size: 14px;
+  color: var(--live-text-secondary);
+  margin: 0;
+}
+
+/* แท็บตัวเลือกไลฟ์สด */
+.live-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.live-option-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  border: 2px solid var(--live-border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.live-option-card:hover {
+  border-color: var(--live-primary-pink);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(251, 114, 153, 0.2);
+}
+
+.live-option-card .option-icon {
+  font-size: 32px;
+  margin-right: 16px;
+}
+
+.live-option-card .option-content {
+  flex: 1;
+}
+
+.live-option-card .option-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--live-text-primary);
+  margin: 0 0 4px 0;
+}
+
+.live-option-card .option-content p {
+  font-size: 14px;
+  color: var(--live-text-secondary);
+  margin: 0;
+}
+
+.live-option-card .option-arrow {
+  font-size: 20px;
+  color: var(--live-text-secondary);
+  transition: transform 0.3s ease;
+}
+
+.live-option-card:hover .option-arrow {
+  transform: translateX(4px);
+  color: var(--live-primary-pink);
+}
+
+/* ==================== สไตล์ป็อปอัพ ==================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--live-border-color);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--live-text-primary);
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--live-text-secondary);
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: f...(truncated 16370 characters)... padding: 0 3px; /* ลด padding ซ้ายขวาเพิ่มเติม */
+  }
+
+  .interaction-panel {
+    /* รักษาอัตราส่วน 20% ปรับเฉพาะ padding */
+    padding: 6px; /* ลด padding เพิ่มเติม */
+  }
+
+  .live-content-text {
+    font-size: 13px; /* ลดขนาดตัวอักษรเพิ่มเติม */
+    max-height: none; /* อนุญาตให้แสดงเนื้อหาเต็ม ไม่จำกัดความสูง */
+    line-height: 1.4; /* ปรับระยะห่างบรรทัด */
+  }
+
+  /* ตัวอักษรและระยะห่าง弹幕สำหรับหน้าจอเล็ก */
+  .danmaku-list {
+    gap: 5px; /* ลดระยะห่างเพิ่มเติม 6px → 5px */
+  }
+
+  .danmaku-item {
+    font-size: 12px; /* ลดขนาดตัวอักษรสำหรับหน้าจอเล็กเพิ่มเติม 13px → 12px */
+  }
+
+  .danmaku-item.gift {
+    font-size: 11px; /* ขนาดตัวอักษร弹幕ของขวัญสำหรับหน้าจอเล็ก 12px → 11px */
+  }
+
+  /* การตกแต่ง LIVE สำหรับหน้าจอเล็ก */
+  .live-status-bottom {
+    font-size: 11px; /* ลดขนาดตัวอักษรเพิ่มเติม 12px → 11px */
+    gap: 3px; /* ลดระยะห่างเพิ่มเติม 4px → 3px */
+    margin-top: 0; /* รักษาไม่มีระยะห่างด้านบน */
+  }
+
+  .live-dot {
+    width: 5px; /* ลดขนาดเพิ่มเติม 6px → 5px */
+    height: 5px; /* ลดขนาดเพิ่มเติม 6px → 5px */
+  }
+
+  /* หัวข้อแนะนำ互动สำหรับหน้าจอเล็ก */
+  .interaction-header {
+    margin-bottom: 6px; /* ลดระยะห่างด้านล่างเพิ่มเติม 8px → 6px */
+  }
+
+  .interaction-header h4 {
+    font-size: 12px; /* ลดขนาดตัวอักษรเพิ่มเติม 13px → 12px */
+  }
+
+  .interact-btn {
+    padding: 4px 8px; /* ลด padding เพิ่มเติม 5px 10px → 4px 8px */
+    font-size: 9px; /* ลดขนาดตัวอักษรเพิ่มเติม 10px → 9px */
+    border-radius: 10px; /* ลดมุมโค้งเพิ่มเติม 12px → 10px */
+    gap: 2px; /* รักษาระยะห่าง */
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 16px;
+  }
+}
+
+/* ==================== อนิเมชันโหลด ==================== */
+
+.live-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 16px;
+  color: var(--live-text-secondary);
+}
+
+.live-loading::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e0e0e0;
+  border-top: 2px solid var(--live-primary-pink);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==================== สไตล์แถบเลื่อนที่สวยงาม ==================== */
+
+.live-main-container::-webkit-scrollbar,
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.live-main-container::-webkit-scrollbar-track,
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.live-main-container::-webkit-scrollbar-thumb,
+.modal-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+}
+
+.live-main-container::-webkit-scrollbar-thumb:hover,
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* ==================== เอฟเฟกต์พิเศษ ==================== */
+
+/* เอฟเฟกต์คลื่นเมื่อคลิกปุ่ม */
+.start-live-btn,
+.submit-btn,
+.interact-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.start-live-btn::after,
+.submit-btn::after,
+.interact-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.start-live-btn:active::after,
+.submit-btn:active::after,
+.interact-btn:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* การมองเห็นเมื่อโฟกัส */
+button:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--live-primary-pink);
+  outline-offset: 2px;
+}
+
+/* เอฟเฟกต์ปรากฏทีละรายการสำหรับ弹幕/ของขวัญใหม่ */
+.danmaku-item.appear-init,
+.gift-list li.appear-init {
+  opacity: 0;
+  transform: translateY(10px);
+  display: none; /* ไม่ยึดพื้นที่ในตอนแรก เพื่อหลีกเลี่ยงช่องว่าง */
+}
+
+.danmaku-item.appear-show,
+.gift-list li.appear-show {
+  opacity: 1;
+  transform: translateY(0);
+  display: block; /* ยึดพื้นที่เมื่อปรากฏ */
+  transition: opacity 300ms ease, transform 300ms ease;
+}
