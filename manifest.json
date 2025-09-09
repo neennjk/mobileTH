@@ -1,0 +1,12 @@
+{
+    "display_name": "ตัวตรวจสอบบริบทมือถือพร้อมอัปโหลด",
+    "loading_order": 100,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "styles/main.css",
+    "author": "沉淀",
+    "version": "1.2.0",
+    "homePage": "https://gitee.com/huaqing1122/mobile-ui-test.git",
+    "description": "ปลั๊กอินมือถือที่ตรวจสอบการเปลี่ยนแปลงบริบทของ SillyTavern แบบเรียลไทม์ รวมฟังก์ชันอัปโหลดไฟล์ รองรับการดึงข้อมูลและอินเทอร์เฟซมือถือน่ารัก"
+}
