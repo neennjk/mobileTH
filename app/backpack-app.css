@@ -1,4 +1,4 @@
-/* สไตล์แอปกระเป๋าเป้ */
+/* 背包应用样式 */
 .backpack-app {
   height: 100%;
   display: flex;
@@ -7,12 +7,12 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* รับประกันว่า app-content มีบริบทการจัดตำแหน่งที่ถูกต้อง */
+/* 确保app-content有正确的定位上下文 */
 .backpack-app #app-content {
   position: relative;
 }
 
-/* คอนเทนเนอร์รายการกระเป๋าเป้ */
+/* 背包列表容器 */
 .backpack-item-list {
   flex: 1;
   overflow-y: auto;
@@ -20,7 +20,7 @@
   background: #f8fafb;
 }
 
-/* หัวกระเป๋าเป้ */
+/* 背包头部 */
 .backpack-header {
   background: rgba(255, 255, 255, 0.95);
   padding: 8px 12px;
@@ -44,14 +44,14 @@
   text-align: center;
 }
 
-/* กริดไอเท็มกระเป๋าเป้ - เปลี่ยนเป็นเลย์เอาต์แบบแถวเดียว */
+/* 背包物品网格 - 改为单列布局 */
 .backpack-grid {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-/* การ์ดไอเท็มกระเป๋าเป้ - สไตล์แน่น */
+/* 背包物品卡片 - 紧凑样式 */
 .backpack-item {
   background: #fff;
   border-radius: 6px;
@@ -67,14 +67,14 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* คอนเทนเนอร์ข้อมูลไอเท็ม */
+/* 物品信息容器 */
 .backpack-item-info {
   display: flex;
   flex-direction: column;
   gap: 3px;
 }
 
-/* หัวไอเท็ม - ชื่อและประเภท */
+/* 物品头部 - 名称和类型 */
 .backpack-item-header {
   display: flex;
   justify-content: space-between;
@@ -107,7 +107,7 @@
   margin: 2px 0;
 }
 
-/* ส่วนท้ายไอเท็ม - จำนวนและปุ่มใช้งาน */
+/* 物品底部 - 数量和使用按钮 */
 .backpack-item-footer {
   display: flex;
   justify-content: space-between;
@@ -127,7 +127,7 @@
   white-space: nowrap;
 }
 
-/* ปุ่มใช้งานไอเท็ม */
+/* 使用物品按钮 */
 .use-item-btn {
   background: #667eea;
   color: white;
@@ -151,7 +151,7 @@
   transform: translateY(0);
 }
 
-/* สไตล์แถบแท็กประเภทไอเท็มกระเป๋าเป้ - อ้างอิงจาก shop-app */
+/* 物品类型标签栏样式 - 参考shop-app */
 .backpack-type-tabs {
   display: flex;
   padding: 8px 12px;
@@ -182,7 +182,288 @@
 
 .backpack-type-tab:hover:not(.active) {
   background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, ...(truncated 4498 characters)...backpack-item {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+
+/* 搜索栏样式 */
+.backpack-search-bar {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: #667eea;
+  border-bottom: 1px solid #5a6fd8;
+  gap: 8px;
+}
+
+.backpack-search-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 14px;
+  border-radius: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.backpack-search-input:focus {
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.backpack-search-input::placeholder {
+  color: #999;
+}
+
+.backpack-search-clear {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.backpack-search-clear:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+/* 空状态 */
+.backpack-empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.empty-title {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.empty-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.empty-hint {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  margin-bottom: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 300px;
+}
+
+.retry-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* 错误状态 */
+.error-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.error-text {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.error-detail {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* 加载状态 */
+.loading-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.loading-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  animation: spin 2s linear infinite;
+}
+
+.loading-text {
+  color: white;
+  font-size: 16px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 提示消息 */
+.backpack-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: #333;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  z-index: 10000;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.backpack-toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+.backpack-toast.success {
+  background: #4caf50;
+}
+
+.backpack-toast.error {
+  background: #f44336;
+}
+
+.backpack-toast.warning {
+  background: #ff9800;
+}
+
+.backpack-toast.info {
+  background: #2196f3;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .backpack-item-list {
+    padding: 4px 6px;
+  }
+
+  .backpack-header {
+    padding: 6px 8px;
+    margin-bottom: 6px;
+  }
+
+  .backpack-grid {
+    gap: 3px;
+  }
+
+  .backpack-item {
+    padding: 6px 8px;
+  }
+
+  .backpack-type-tabs {
+    padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .backpack-type-tab {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+
+  .backpack-search-bar {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+
+  .backpack-search-input {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .backpack-search-clear {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 98%;
+    margin: 5px;
+    padding: 16px;
+  }
+
+  .backpack-item-list {
+    padding: 3px 4px;
+  }
+
+  .backpack-header {
+    padding: 6px 8px;
+    margin-bottom: 6px;
+  }
+
+  .backpack-grid {
+    gap: 2px;
+  }
+
+  .backpack-item {
     padding: 6px;
   }
 
@@ -218,7 +499,7 @@
   }
 }
 
-/* สไตล์แถบเลื่อน */
+/* 滚动条样式 */
 .backpack-item-list::-webkit-scrollbar {
   width: 4px;
 }
@@ -237,7 +518,7 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* สไตล์ป็อปอัพกำหนดเอง - อ้างอิงจาก live-app */
+/* 自定义弹窗样式 - 参考live-app */
 .custom-modal {
   position: absolute;
   inset: 0;

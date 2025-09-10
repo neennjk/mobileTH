@@ -1,6 +1,6 @@
-/* ไฟล์สไตล์ Task App - 基于 shop-app.css */
+/* Task App 样式文件 - 基于shop-app.css */
 
-/* คอนเทนเนอร์แอปงาน */
+/* 任务应用容器 */
 .task-app {
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
-/* คอนเทนเนอร์รายการงาน */
+/* 任务列表容器 */
 .task-list {
   padding: 12px 16px;
   flex: 1;
@@ -16,7 +16,7 @@
   background: transparent;
 }
 
-/* กริดงาน */
+/* 任务网格 */
 .task-grid {
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@
   margin-bottom: 12px;
 }
 
-/* รายการงาน */
+/* 任务项 */
 .task-item {
   background: white;
   border-radius: 12px;
@@ -49,12 +49,12 @@
   color: #6c757d;
 }
 
-/* ข้อมูลงาน */
+/* 任务信息 */
 .task-info {
   flex: 1;
 }
 
-/* แถวหัวงาน - รวมชื่องานและปุ่ม/สถานะ */
+/* 任务头部行 - 包含任务名称和按钮/状态 */
 .task-header-row {
   display: flex;
   justify-content: space-between;
@@ -116,7 +116,7 @@
   display: inline-block;
 }
 
-/* ปุ่มดำเนินการงาน */
+/* 任务操作按钮 */
 .accept-task-btn {
   background: #6366f1;
   color: white;
@@ -157,7 +157,7 @@
   box-shadow: 0 4px 12px rgba(116, 185, 255, 0.4);
 }
 
-/* สถานะว่าง */
+/* 空状态 */
 .task-empty-state {
   text-align: center;
   padding: 80px 20px;
@@ -186,7 +186,7 @@
   color: #7f8c8d;
 }
 
-/* แท็บ */
+/* 标签页 */
 .task-tabs {
   display: flex;
   background: white;
@@ -203,7 +203,28 @@
   background: none;
   color: #7f8c8d;
   font-size: 12px;
-  fon...(truncated 344 characters)...
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.task-tab.active {
+  background: #6366f1;
+  color: white;
+  box-shadow: 0 1px 3px rgba(99, 102, 241, 0.3);
+}
+
+.task-tab:hover:not(.active) {
+  background: #f8f9fa;
+  color: #2c3e50;
+}
+
+/* 提示消息 */
+.task-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
   padding: 15px 20px;
   border-radius: 8px;
   color: white;
@@ -235,7 +256,7 @@
   background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
 }
 
-/* การออกแบบแบบตอบสนอง */
+/* 响应式设计 */
 @media (max-width: 768px) {
   .task-list {
     padding: 8px 12px;
@@ -254,7 +275,7 @@
   }
 }
 
-/* สไตล์แถบเลื่อน */
+/* 滚动条样式 */
 .task-list::-webkit-scrollbar {
   width: 8px;
 }
@@ -273,7 +294,7 @@
   background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
 }
 
-/* อนิเมชันโหลด */
+/* 加载动画 */
 .task-loading {
   display: flex;
   justify-content: center;
@@ -303,7 +324,7 @@
   }
 }
 
-/* ตัวบ่งชี้สถานะงาน */
+/* 任务状态指示器 */
 .task-status-indicator {
   position: absolute;
   top: 10px;
@@ -326,7 +347,7 @@
   background: #27ae60;
 }
 
-/* แท็กความสำคัญของงาน */
+/* 任务优先级标签 */
 .task-priority {
   position: absolute;
   top: 10px;
@@ -353,7 +374,7 @@
   color: white;
 }
 
-/* แท็กงาน */
+/* 任务标签 */
 .task-tags {
   display: flex;
   flex-wrap: wrap;
@@ -370,7 +391,7 @@
   font-weight: 600;
 }
 
-/* แถบความคืบหน้าของงาน */
+/* 任务进度条 */
 .task-progress {
   margin-top: 10px;
   height: 4px;
@@ -385,7 +406,7 @@
   transition: width 0.3s ease;
 }
 
-/* การ์ดสถิติงาน */
+/* 任务统计卡片 */
 .task-stats-card {
   background: white;
   border-radius: 12px;
